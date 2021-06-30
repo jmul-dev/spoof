@@ -1,0 +1,19 @@
+{
+	"name": "spoof",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Johan Mulyono",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"husky": "^6.0.0",
+		"lint-staged": "^11.0.0",
+		"prettier": "2.3.2"
+	},
+	"scripts": {
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	}
+}

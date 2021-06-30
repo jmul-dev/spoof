@@ -13,14 +13,23 @@ const main = async () => {
 	await page.setUserAgent(userAgent);
 
 	debug('open browser and go to 10best.com');
-	await page.goto('https://www.10best.com/awards/travel/best-attraction-for-car-lovers/mecum-auctions-multiple-locations/');
+	try {
+		await page.goto('https://www.10best.com/awards/travel/best-attraction-for-car-lovers/mecum-auctions-multiple-locations/');
+	} catch (err) {
+		debug(`Error: ${err}`);
+	}
 
-	await page.$eval('#awardVoteButton', (button) => button.click());
+	debug('click the vote button');
+	try {
+		await page.$eval('#awardVoteButton', (button) => button.click());
+	} catch (err) {
+		debug(`Error: ${err}`);
+	}
 
 	setTimeout(() => {
 		debug('voting completed!');
 		browser.close();
-	}, 10000);
+	}, 8000);
 };
 
 main();
